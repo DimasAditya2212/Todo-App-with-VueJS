@@ -1,7 +1,7 @@
 <template>
     <header>
         <h1>{{ title }}</h1>
-        <Button text='Add Task' color='grey'/>
+        <Button @btn-click="$emit('showForm')" :text="toggleText ? 'Close' : 'Add Task'" :color="toggleText ? 'green' : 'blue'"/>
     </header>
 </template>
 
@@ -10,6 +10,11 @@ import Button from './Button'
 
 export default {
     name: 'Header',
+    // data() {
+    //     return{
+    //         text: 
+    //     }
+    // },
     components: {
         Button
     },
@@ -18,6 +23,7 @@ export default {
             type: String,
             default: 'hello',
         },
+        toggleText: Boolean,
     },
     
 }
